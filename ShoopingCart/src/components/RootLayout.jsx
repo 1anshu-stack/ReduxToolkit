@@ -1,21 +1,17 @@
 import { Outlet } from "react-router-dom";
 import NavBarPanel from "./NavBarPanel";
 import { Provider } from "react-redux";
-import Store from "../store/store.js";
-
+import store from "../redux/Store";
+ 
 const RootLayout = () => {
     return (
         <>
-            <Provider store={Store}>
+            <Provider store={store}>
                 <NavBarPanel />
                 <main>
                     <Outlet />
                 </main>
             </Provider>
-                {/* <NavBarPanel />
-                <main>
-                    <Outlet />
-                </main> */}
         </>
     );
 };
