@@ -1,21 +1,21 @@
 import { Outlet } from "react-router-dom";
 import NavBarPanel from "./NavBarPanel";
 import { Provider } from "react-redux";
-// import store from "../store/store.js";
+import Store from "../store/store.js";
 
 const RootLayout = () => {
     return (
         <>
-            {/* <Provider store={store}>
+            <Provider store={Store}>
                 <NavBarPanel />
                 <main>
                     <Outlet />
                 </main>
-            </Provider> */}
-                <NavBarPanel />
+            </Provider>
+                {/* <NavBarPanel />
                 <main>
                     <Outlet />
-                </main>
+                </main> */}
         </>
     );
 };
