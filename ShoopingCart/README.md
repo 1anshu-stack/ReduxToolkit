@@ -17,3 +17,7 @@ Dependencies:- react-bootstrap, bootstrap,
 we created our store, redux and components but to make them communicating with each other "idealy we have provide our state that be have created to our component pages" to do this react binding comes in the picture.
 
 Provider is a way to provide our redux state to our components.
+
+we createSlice per feature bcoz it will mutate the present state in it.
+
+Make api call with reduxToolkit:- we use middle ware to handel asynchronous code Thunks. Here we have extraRecuder to handel the asynchronous code.

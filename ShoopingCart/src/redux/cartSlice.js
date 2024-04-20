@@ -1,9 +1,9 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { combineReducers, creareSlice } from '@reduxjs/toolkit';
+import { combineReducers, createSlice } from '@reduxjs/toolkit';
 
 const initialState = [];
 
-const cartSlice = creareSlice({
+const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
