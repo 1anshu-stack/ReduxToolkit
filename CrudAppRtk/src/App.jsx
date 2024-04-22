@@ -1,19 +1,19 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css"; 
+import "bootstrap/dist/css/bootstrap.min.css";
 import Navbars from "./components/Navbars";
 import Create from "./components/Create";
-import { BrowserRoute, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRoute>
+    <>
+      <BrowserRouter>
         <Navbars />
         <Routes>
           <Route path="/" element={<Create />} />
         </Routes>
-      </BrowserRoute>
-    </div>
+      </BrowserRouter>
+    </>
   );
 }
 
