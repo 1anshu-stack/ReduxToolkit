@@ -4,8 +4,10 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useSelector } from 'react-redux';
 
 const Navbars = () => {
+    const data = useSelector((state) => state.app.users);
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container fluid>
@@ -18,7 +20,7 @@ const Navbars = () => {
                         navbarScroll
                     >
                         <Nav.Link href="#action1">Create Post</Nav.Link>
-                        <Nav.Link href="#action2">All Posts</Nav.Link>  
+                        <Nav.Link href="#action2">All Posts ({data.length})</Nav.Link>  
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control
