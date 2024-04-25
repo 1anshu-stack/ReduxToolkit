@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { updateUser } from "../features/userDetailSlice";
 
 const Just = () => {
     const { id } = useParams();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [updateData, setUpdateData] = useState();
     const {users, loading} = useSelector((state) => state.app);
@@ -15,15 +17,16 @@ const Just = () => {
         }
     },[])
 
-    console.log(updateData);
+    // console.log(updateData);
 
     const newData = (e) => {
         setUpdateData({...updateData, [e.target.name] : e.target.value})
     }
 
-    const handleUpdate = () => {
+    const handleUpdate = (e) => {
         e.preventDefault();
         dispatch(updateUser(updateData));
+        navigate("/read");
     }
 
     return (
