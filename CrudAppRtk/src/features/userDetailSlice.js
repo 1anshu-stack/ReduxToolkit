@@ -44,6 +44,24 @@ export const deleteUser = createAsyncThunk("deleteUser", async (id, {rejectWithV
     }
 });
 
+
+//update user
+export const updateUser = createAsyncThunk("updateUser", async (data, {rejectWithValue}) => {
+    const response = await fetch(`https://6624dc7e04457d4aaf9d2622.mockapi.io/crud/${data.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+    try {
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        return rejectWithValue(error);
+    }
+});
+
 export const userDetail = createSlice({
     name: "userDetail",
     initialState: {
@@ -66,11 +84,11 @@ export const userDetail = createSlice({
         // },
         builder.addCase(createUser.pending, (state) => {
             state.loading = true;
-        })
+        }),
         builder.addCase(createUser.fulfilled, (state, action) => {
             state.loading = false;
             state.users.push(action.payload)
-        })
+        }),
         builder.addCase(createUser.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload.message;
@@ -98,9 +116,20 @@ export const userDetail = createSlice({
             console.log(action.payload);
             // state.users=action.payload;
         }),
-        builder.addCase(deleteUser.rejected, (state, action) => {
+        builder.addCase(updateUser.rejected, (state, action) => {
             state.loading = false;
             state.error = action.payload;
+        }),
+        builder.addCase(updateUser.pending, (state) => {
+            state.loading = true;
+        }),
+        builder.addCase(updateUser.fulfilled, (state, action) => {
+            state.loading = false;
+            state.users.push(action.payload)
+        }),
+        builder.addCase(createUser.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.payload.message;
         })
     },
 });

@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 
 const CustomModal = ( {id, showPopup, setShowPopup} ) => {
     const allData = useSelector((state) => state.app.users);
+    // console.log("data", allData);
     const singleUser = allData.filter((ele) => ele.id===id);
+    // console.log("single", singleUser);
     return (
          <div className="modalBackground">
             <div className="modalContainer">

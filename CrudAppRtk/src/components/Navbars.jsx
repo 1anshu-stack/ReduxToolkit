@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Navbars = () => {
     const data = useSelector((state) => state.app.users);
@@ -19,8 +20,8 @@ const Navbars = () => {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Create Post</Nav.Link>
-                        <Nav.Link href="#action2">All Posts ({data.length})</Nav.Link>  
+                        <Link to="/">Create Post</Link>
+                        <Link to="/read">All Posts ({data.length})</Link>  
                     </Nav>
                     <Form className="d-flex">
                         <Form.Control
